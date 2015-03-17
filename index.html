@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      h2 {color: blue;}
+      h1 {color: green;}
+
+      #maxwidth {
+      	max-height: 350px;
+      	border-style: solid;
+    	border-width: 1px;
+    	border-color: #B8B894;
+      }
+
+      #logo {
+      	position: absolute;;
+      	left: 200px;
+      	margin: 5px;
+
+      }
+      article {max-width: 500px;padding: 20px; margin: 0 auto;}
+      @media (max-width: 500px) {
+        body {
+          background: red;
+        }
+      }
+        
+
+
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+   </head>
+  
+  <body>
+  <img id="logo" src="wiki.png" width="50" > 
+    <article>
+        <div id="feed">
+
+        </div>
+        <div id="loadmoreajaxloader" style="display:none;"><center><img src="loader.gif" width="25" /></center></div>
+
+    </article>
+  <script>
+
+     
+
+     urlContent = "http://en.wikipedia.org/w/api.php?format=json&action=query&generator=random& grnlimit=max&exlimit=max&grnnamespace=0&prop=extracts&exintro=&explaintext&continue=&callback=?";
+
+
+    function fetchPost() {
+      $.getJSON(urlContent, function(data) {
+        $.each(data.query.pages, function(i, item) {
+          content = item.extract;
+          pageId = item.pageid;
+          colum = "post" + pageId;
+          $("#feed").append("<div id = "+colum+">");
+          $("#"+colum).append("<h2>"+item.title +"</h2>"+ "<p>" + content + "</p>");
+          $("#feed").append("</div>");
+          fetchImage(pageId);
+        });
+      });
+
+      return 1;
+    }
+
+    function fetchImage(pageId) {
+      urlImage = "http://en.wikipedia.org/w/api.php?action=query&pageids="+pageId+"&prop=pageimages&format=json&pithumbsize=500&continue=&callback=?";
+      
+        
+       $.getJSON(urlImage, function(data) {
+        $.each(data.query.pages, function(i, item) {
+          content = item.thumbnail.source;
+          colum = "post" + pageId;
+          $("#" + colum).append("<img id='maxwidth' src = "+content+"> </img> <hr>");
+            
+        });
+      });
+
+    }
+
+    
+
+    $(document).ready(function(){
+  		
+		
+
+      fetchPost();
+      
+     
+     
+     
+    });
+
+   
+   $(window).scroll(function()
+    {
+    	
+    if($(window).scrollTop() == $(document).height() - $(window).height())
+    {    
+        data = 0;
+        
+        $('div#loadmoreajaxloader').show();
+        $.ajax({
+        url: urlContent ,
+        dataType: "json",
+
+        success: function(data)
+        {   
+
+
+            if(data)
+            {
+               $.each(data.query.pages, function(i, item) {
+                console.log(item.pageid);
+               content = item.extract;
+               pageId = item.pageid;
+               pageTitle = item.title;
+               colum = "post" + pageId;
+               pageurl = "rest/?title=" + pageTitle;
+
+               $("#feed").append("<div id = "+colum+">");
+               $("#"+colum).append("<h1>"+item.title +"</h1>");
+               $("#"+colum).append( "<p>" + content + "</p>");
+               
+               $("#feed").append("</div>");
+               fetchImage(pageId);
+              });
+                
+                $('div#loadmoreajaxloader').hide();
+            } 
+
+            else
+              {
+                
+                $('div#loadmoreajaxloader').html('<center>No more posts to show.</center>');
+            }
+        }
+        });
+    }
+});
+     
+     
+   
+
+  </script>
+  </body>
+</html>
