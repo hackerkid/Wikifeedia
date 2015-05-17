@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
     <style>
-      h2 {color: blue;}
-      h1 {color: green;}
+      h2 {
+        margin-top: 3px;
+        margin-bottom: 1px;
+
+      }
+
+      #logotitle {
+      	font-size: 24px;
+      	font-family: 'Hoefler Text', 'Times New Roman', 'Times New Roman', Times, serif; 
+      }
+      
 
       #maxwidth {
       	max-height: 350px;
@@ -12,9 +23,46 @@
     	border-color: #B8B894;
       }
 
+      #category2 {
+        line-height: 1.2em;
+        font-size: 14px;
+        font-weight: 500;
+        color: white;
+        cursor: pointer;
+        word-wrap: break-word;
+        background-color: #808393;
+        border-radius:6px;
+        
+        padding-left:5px;
+        padding-right: 5px;
+        margin-left: 2px;
+        margin-right: 2px;
+        display: inline-block;
+       
+       
+      }
+
+      #category {
+      	line-height: 1.2em;
+        font-size: 12px;
+        font-weight: 500;
+        color: #414444;
+        cursor: pointer;
+        word-wrap: break-word;
+        border-radius:6px;
+        text-decoration: underline;
+
+        
+        
+        padding-right: 5px;
+        margin-right: 2px;
+
+      }
+
       #logo {
-      	position: absolute;;
+      	position: relative;
       	left: 200px;
+      	top: 10px;
       	margin: 5px;
 
       }
@@ -28,13 +76,35 @@
 
 
     </style>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
    </head>
-  
-  <body>
-  <img id="logo" src="wiki.png" width="50" > 
+
+<body>
+
+
+
+<nav class="navbar navbar-default ">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand"  href="#"><span><img alt="WikiFeedia"  src="wiki.png" width="30" > WikiFeedia</span></a>
+    </div>
+    <div>
+     
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+  <!--span id="logo">
+  <img  src="wiki.png" width="50" >
+  <span id="logotitle"> WikiFeedia </span>
+  </span--> 
+   
+
     <article>
         <div id="feed">
 
@@ -47,7 +117,35 @@
      
 
      urlContent = "http://en.wikipedia.org/w/api.php?format=json&action=query&generator=random& grnlimit=max&exlimit=max&grnnamespace=0&prop=extracts&exintro=&explaintext&continue=&callback=?";
+  	//	urlContent = "http://en.wikipedia.org/w/api.php?format=json&cmcontinue&action=query&list=random&generator=categorymembers&gcmtitle=Category:Team%20sports&prop=info&prop=extracts&exintro=&explaintext&exlimit=max&continue&rnlimit=10&rnnamespace=0&callback=?";
+  		//urlContent = "http://en.wikipedia.org/w/api.php?action=query&list=random&format=json&rnnamespace=0&rnlimit=10&generator=categorymembers&gcmtitle=Category%3ATeam%20sports&gcmnamespace=0&gcmtype=page&gcmsort=timestamp?&callback=?"
+    
+    
+  	function fetchCat(pageId) {
 
+		ul = "https://en.wikipedia.org/w/api.php?action=query&format=json&grnlimit=max&exlimit=max&prop=categories&pageids="+pageId+"&continue=&callback=?"
+		
+		
+		$.getJSON(ul, function(data) {
+        	$.each(data.query.pages, function(i, item) {
+        		k = 0;
+          	$.each(item.categories, function(j, cat) {
+          		catId = "cat" + pageId;
+          		catile = cat.title;
+          		catile = catile.replace("Category:", "");
+          		if((catile.match(/articles/g) || []).length == 0 && (catile.match(/Articles/g) || []).length == 0 && (catile.match(/Pages/g ) || []).length == 0 && (catile.match(/Article/g) || []).length == 0 && (catile.match(/category/g) || []).length == 0 && (catile.match(/pages/g) || []).length == 0 && k <5 ) {
+          			k++;	
+            		$("#"+catId).append("<span id = 'category'>" + catile +" </span>");
+
+            	}
+            	console.log(catId);
+
+          	});
+          
+        	});
+  		});
+
+		  	}
 
     function fetchPost() {
       $.getJSON(urlContent, function(data) {
@@ -55,9 +153,18 @@
           content = item.extract;
           pageId = item.pageid;
           colum = "post" + pageId;
+          catId = "cat" + pageId;
+
           $("#feed").append("<div id = "+colum+">");
-          $("#"+colum).append("<h2>"+item.title +"</h2>"+ "<p>" + content + "</p>");
-          $("#feed").append("</div>");
+
+          $("#"+colum).append("<h2>"+item.title +"</h2>");
+          $("#"+colum).append("<div id = " + catId + "> </div><br>");
+
+
+          $("#"+colum).append("<p>" + content + "</p>");
+
+          $("#feed").append("</div><hr><br>");
+          fetchCat(pageId);
           fetchImage(pageId);
         });
       });
@@ -73,7 +180,7 @@
         $.each(data.query.pages, function(i, item) {
           content = item.thumbnail.source;
           colum = "post" + pageId;
-          $("#" + colum).append("<img id='maxwidth' src = "+content+"> </img> <hr>");
+          $("#" + colum).append("<img id='maxwidth' src = "+content+"> </img>");
             
         });
       });
@@ -117,14 +224,20 @@
                content = item.extract;
                pageId = item.pageid;
                pageTitle = item.title;
+               catId = "cat" + pageId;
+
                colum = "post" + pageId;
                pageurl = "rest/?title=" + pageTitle;
 
                $("#feed").append("<div id = "+colum+">");
+
                $("#"+colum).append("<h1>"+item.title +"</h1>");
+               $("#"+colum).append("<div id = " + catId + "> </div><br>");
+
                $("#"+colum).append( "<p>" + content + "</p>");
                
-               $("#feed").append("</div>");
+               $("#feed").append("</div><hr><br>");
+               fetchCat(pageId);
                fetchImage(pageId);
               });
                 
