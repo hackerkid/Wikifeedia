@@ -1,5 +1,5 @@
  
-  var category_of_page = "Chemistry";
+  var category_of_page = getUrlVars()["category"];
   var heroku_url = "http://wikifeedia.herokuapp.com/index.php?category=" + category_of_page + "&callback=?"
   var hex_code = new Array();
   function loadStartIndex() {
@@ -138,5 +138,17 @@
         });
     }
 });
-     
-   
+
+
+ function getUrlVars() {
+  var vars = {};
+  var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+    vars[key] = value;
+  });
+  return vars;
+}
+
+
+
+
+        
