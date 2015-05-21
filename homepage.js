@@ -59,15 +59,26 @@
           colum = "post" + pageId;
           catId = "cat" + pageId;
 
-          $("#feed").append("<div id = "+colum+">");
+          if($("#"+colum).length == 0) {
+            $("#feed").append("<div id = "+colum+">");
+          
+            if($("#"+colum+" h2").length == 0) {
+      
+              $("#"+colum).append("<h2>"+item.title +"</h2>");
+            }    
+            
+            if($("#"+catId).length == 0) {
+              $("#"+colum).append("<div id = " + catId + "> </div><br>");
+            }
 
-          $("#"+colum).append("<h2>"+item.title +"</h2>");
-          $("#"+colum).append("<div id = " + catId + "> </div><br>");
+            if($("#"+colum+" <p>").length == 0) {
+      
 
+              $("#"+colum).append("<p>" + content + "</p>");
+              $("#feed").append("</div><hr><br>");
+            }
 
-          $("#"+colum).append("<p>" + content + "</p>");
-
-          $("#feed").append("</div><hr><br>");
+          }
           fetchCat(pageId);
           fetchImage(pageId);
         });
