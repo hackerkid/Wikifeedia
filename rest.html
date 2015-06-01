@@ -41,6 +41,7 @@ function getParameterByName(name) {
 title = getParameterByName('title');
 
 url = "https://rest.wikimedia.org/en.wikipedia.org/v1/page/html/"+ title;
+//url = "http://en.wikipedia.org/wiki/Special:RandomInCategory/Physics&callback=?";
 fetchPost(url);
   
 });

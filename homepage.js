@@ -16,8 +16,7 @@
         for (var i = 0; i < start_page_cleaned.length; i++) {
           hex_code = hex_code + start_page_cleaned.charCodeAt(i).toString(16)
         }
-//        console.log(start_page_cleaned);
-//        console.log(hex_code);
+
 
 
         start_url = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=categories&titles="+start_page + "&callback=?"
@@ -71,27 +70,20 @@
               $("#"+colum).append("<div id = " + catId + "> </div><br>");
             }
 
-            if($("#"+colum+" <p>").length == 0) {
+            if($("#"+colum+" p").length == 0) {
       
 
               $("#"+colum).append("<p>" + content + "</p>");
               $("#feed").append("</div><hr><br>");
+              fetchCat(pageId);
+          	  fetchImage(pageId);
             }
 
           }
-          fetchCat(pageId);
-          fetchImage(pageId);
+         
         });
 
-        $("#search_input").keyup(function()
-        {
-          var search_input = $(this).val();
-          console.log(search_input);
-          category_of_page = search_input;
-          $("#feed").html("");
-          loadStartIndex();
-        });
-
+        
 
       });
 
@@ -107,7 +99,7 @@
         $.each(data.query.pages, function(i, item) {
           content = item.thumbnail.source;
           colum = "post" + pageId;
-          $("#" + colum).append("<img id='maxwidth' src = "+content+"> </img> <hr>");
+          $("#" + colum).append("<img id='maxwidth' src = "+content+"> </img>");
             
         });
       });
@@ -119,9 +111,22 @@
     $(document).ready(function(){
     //  
       loadStartIndex();
-    
-    });
+      $("#search_input").keyup(function()
+        {
+          var search_input = $(this).val();
+          console.log(search_input);
+          category_of_page = search_input;
+          $("#feed").html("");
+          loadStartIndex();
+       });
+ 		
+ 		$("#feed").on('click', 'span', function() { 
+ 			  category_of_page = $( this ).text();
+ 			  $("#feed").html("");
+          	  loadStartIndex();
+  		});
 
+  		});	
    
     
    $(window).scroll(function()
@@ -143,26 +148,36 @@
 
             if(data)
             {
-               $.each(data.query.pages, function(i, item) {
-               content = item.extract;
-               pageId = item.pageid;
-               pageTitle = item.title;
-               catId = "cat" + pageId;
+                $.each(data.query.pages, function(i, item) {
+          content = item.extract;
+          pageId = item.pageid;
+          colum = "post" + pageId;
+          catId = "cat" + pageId;
 
-               colum = "post" + pageId;
-               pageurl = "rest/?title=" + pageTitle;
+          if($("#"+colum).length == 0) {
+            $("#feed").append("<div id = "+colum+">");
+          
+            if($("#"+colum+" h2").length == 0) {
+      
+              $("#"+colum).append("<h2>"+item.title +"</h2>");
+            }    
+            
+            if($("#"+catId).length == 0) {
+              $("#"+colum).append("<div id = " + catId + "> </div><br>");
+            }
 
-               $("#feed").append("<div id = "+colum+">");
+            if($("#"+colum+" p").length == 0) {
+      
 
-               $("#"+colum).append("<h1>"+item.title +"</h1>");
-               $("#"+colum).append("<div id = " + catId + "> </div><br>");
+              $("#"+colum).append("<p>" + content + "</p>");
+              $("#feed").append("</div><hr><br>");
+              fetchCat(pageId);
+          	 fetchImage(pageId);
+            }
 
-               $("#"+colum).append( "<p>" + content + "</p>");
-               
-               $("#feed").append("</div><hr><br>");
-               fetchCat(pageId);
-               fetchImage(pageId);
-              });
+          }
+         
+        });
                 
                 $('div#loadmoreajaxloader').hide();
             } 
