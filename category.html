@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      h2 {color: blue;}
+      h1 {color: green;}
+
+      #maxwidth {
+      	max-height: 350px;
+      	border-style: solid;
+    	border-width: 1px;
+    	border-color: #B8B894;
+      }
+
+      #logo {
+      	position: absolute;;
+      	left: 200px;
+      	margin: 5px;
+
+      }
+      article {max-width: 500px;padding: 20px; margin: 0 auto;}
+      @media (max-width: 500px) {
+        body {
+          background: red;
+        }
+      }
+        
+
+
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+   </head>
+  
+  <body>
+  <img id="logo" src="wiki.png" width="50" > 
+    <article>
+        <div id="feed">
+
+        </div>
+        <div id="loadmoreajaxloader" style="display:none;"><center><img src="loader.gif" width="25" /></center></div>
+
+    </article>
+  <script src = "category.js"></script>
+  </body>
+</html>

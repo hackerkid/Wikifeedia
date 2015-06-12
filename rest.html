@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+</head>
+<body>
+<div id="loadmoreajaxloader"><center><img src="red.gif" /></center></div>
+
+<div id="wow" style="display:none;">
+</div>
+
+
+<script>
+
+function fetchPost(url) {
+   $.ajax({url: url,
+   
+   success: function(result){
+    $("#wow").append(result);
+    $("#loadmoreajaxloader").hide();
+    $("#wow").show();
+    
+  	
+   }});
+}
+
+
+
+$(document).ready(function(){
+
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+title = getParameterByName('title');
+
+url = "https://rest.wikimedia.org/en.wikipedia.org/v1/page/html/"+ title;
+//url = "http://en.wikipedia.org/wiki/Special:RandomInCategory/Physics&callback=?";
+fetchPost(url);
+  
+});
+
+</script>
+
+</body>
+</html>
