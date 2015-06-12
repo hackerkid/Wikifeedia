@@ -7,12 +7,12 @@ var heroku_url = 'http://wikifeedia.herokuapp.com/index.php?category=' + categor
 var hex_code = []
 
 function retrive_posts() {
-	
-	if ($("#progress").length === 0) {
-        	$("body").append($("<div><dt/><dd/></div>").attr("id", "progress"));
-        	$("#progress").width((50 + Math.random() * 30) + "%");
-   	}
-    
+
+    if ($("#progress").length === 0) {
+        $("body").append($("<div><dt/><dd/></div>").attr("id", "progress"));
+        $("#progress").width((50 + Math.random() * 30) + "%");
+    }
+
     $.getJSON(urlContent, function(data) {
         next = data.continue.gcmcontinue
 
@@ -27,6 +27,17 @@ function retrive_posts() {
                 $('#feed').append('<div id = ' + colum + '>')
 
                 if ($('#' + colum + ' h2').length == 0) {
+                    if(item.title.indexOf("Category:") != -1) {
+                    	item.title = item.title.replace("Category:", "<span>Category:")
+                    	item.title = item.title+"</span>"
+                    }
+
+                    else {
+                    	temp_url = "https://en.wikipedia.org/wiki/" + item.title;
+                    	item.title =  "<a href="+temp_url + " target='_blank' >"+item.title +"</a>";
+                    }
+
+
                     $('#' + colum).append('<h2>' + item.title + '</h2>')
                 }
 
@@ -34,14 +45,14 @@ function retrive_posts() {
                     $('#' + colum).append('<div id = ' + catId + '> </div><br>')
                 }
 
-                 if ($('#' + imageHolder).length == 0) {
+                if ($('#' + imageHolder).length == 0) {
                     $('#' + colum).append('<div id = ' + imageHolder + '> </div><br>')
                     fetchImage(pageId)
 
                 }
 
                 if ($('#' + colum + ' p').length == 0) {
-					$('#' + colum).append('<p>' + content + '</p>')
+                    $('#' + colum).append('<p>' + content + '</p>')
                     $('#feed').append('</div><hr><br>')
                     fetchCat(pageId)
                 }
@@ -49,11 +60,11 @@ function retrive_posts() {
             }
 
         })
-		
-		$('div#loadmoreajaxloader').hide()
-		 $("#progress").width("101%").delay(200).fadeOut(400, function() {
-        $(this).remove();
-    	});
+
+        $('div#loadmoreajaxloader').hide()
+        $("#progress").width("101%").delay(200).fadeOut(400, function() {
+            $(this).remove();
+        });
 
 
     })
@@ -120,40 +131,38 @@ $(document).ready(function() {
         var search_input = $(this).val()
         console.log(search_input)
         category_of_page = search_input
-        
+
         $('#feed').html('')
-        $('#feed').append('Showing results for <b>'+category_of_page+'</b><span id="message">Chronologically</span><hr>' )
+        $('#feed').append('Showing results for <b>' + category_of_page + ' </b><span id="message">Chronologically</span><hr>')
         $('div#loadmoreajaxloader').show()
-		urlContent = 'http://en.wikipedia.org/w/api.php?format=json&action=query&list=random&generator=categorymembers&gcmtitle=Category:' + category_of_page + '&prop=info&prop=extracts&exintro=&explaintext&exlimit=max&continue=gcmcontinue||random&rnlimit=10&rnnamespace=0&continue=&callback=?'
-		retrive_posts();
-		//loadStartIndex()
+        urlContent = 'http://en.wikipedia.org/w/api.php?format=json&action=query&list=random&generator=categorymembers&gcmtitle=Category:' + category_of_page + '&prop=info&prop=extracts&exintro=&explaintext&exlimit=max&continue=gcmcontinue||random&rnlimit=10&rnnamespace=0&continue=&callback=?'
+        retrive_posts();
+        //loadStartIndex()
     })
 
     $('#feed').on('click', 'span', function() {
-    	 
-
-    	if($(this).text() == "Chronologically") {
-    		$('#feed').html('')
-        	$('#feed').append('Showing results for <b>'+category_of_page+'</b><span id="message">Randomly</span><hr>' )
-        	$('div#loadmoreajaxloader').show()
-			loadStartIndex();
-
-    	}
-
-    	else {
 
 
-    		if($(this).text() != "Randomly") {
-        		category_of_page = $(this).text()
-        	}
-        
-        	$('#feed').html('')
-        	$('#feed').append('Showing results for <b>'+category_of_page+'</b><span id="message">Chronologically</span><hr>' )
+        if ($(this).text() == "Chronologically") {
+            $('#feed').html('')
+            $('#feed').append('Showing results for <b>' + category_of_page + ' </b><span id="message">Randomly</span><hr>')
+            $('div#loadmoreajaxloader').show()
+            loadStartIndex();
 
-        	$('div#loadmoreajaxloader').show()
-        	urlContent = 'http://en.wikipedia.org/w/api.php?format=json&action=query&list=random&generator=categorymembers&gcmtitle=Category:' + category_of_page + '&prop=info&prop=extracts&exintro=&explaintext&exlimit=max&continue=gcmcontinue||random&rnlimit=10&rnnamespace=0&continue=&callback=?'
-        	retrive_posts();
-    	}	
+        } else {
+
+
+            if ($(this).text() != "Randomly") {
+                category_of_page = $(this).text()
+            }
+
+            $('#feed').html('')
+            $('#feed').append('Showing results for <b>' + category_of_page + '</b><span id="message">Chronologically</span><hr>')
+
+            $('div#loadmoreajaxloader').show()
+            urlContent = 'http://en.wikipedia.org/w/api.php?format=json&action=query&list=random&generator=categorymembers&gcmtitle=Category:' + category_of_page + '&prop=info&prop=extracts&exintro=&explaintext&exlimit=max&continue=gcmcontinue||random&rnlimit=10&rnnamespace=0&continue=&callback=?'
+            retrive_posts();
+        }
         //loadStartIndex()
     })
 
