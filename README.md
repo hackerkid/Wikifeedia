@@ -1,4 +1,4 @@
-# [Wikifeedia](http://vishnuks.com/wikifeedia) - Wikipedia delivered as a Newsfeed
+# [Wikifeedia](http://vishnuks.com/Wikifeedia) - Wikipedia delivered as a Newsfeed
 
 I love Wikipedia. It is the first place I would go in the World Wide Web  whenever I want to learn more about some stuff. Like me most of the netizens use Wikipedia only when they want to learn more about something and not for fun like Quora. I consider this as a problem.  Wikifeedia was made to fix that problem. Wikifeedia generates a news feed of awesome Wikipedia articles along with category that I hope would bring back people to use Wikipeedia for fun. The site also has an awesome search function that returns all the articles under a particular category. 
 
