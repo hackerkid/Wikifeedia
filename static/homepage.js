@@ -127,6 +127,7 @@ function fetchImage(pageId) {
 $(document).ready(function() {
     //  
     loadStartIndex()
+/*
     $('#search_input').keyup(function() {
         var search_input = $(this).val()
         console.log(search_input)
@@ -139,6 +140,26 @@ $(document).ready(function() {
         retrive_posts();
         //loadStartIndex()
     })
+
+  */  
+    $('#search_input').bind("enterKey",function(e){
+        var search_input = $("#search_input").val()
+        console.log(search_input)
+        category_of_page = search_input
+
+        $('#feed').html('')
+        $('#feed').append('Showing results for <b>' + category_of_page + ' </b><span id="message">Chronologically</span><hr>')
+        $('div#loadmoreajaxloader').show()
+        urlContent = 'http://en.wikipedia.org/w/api.php?format=json&action=query&list=random&generator=categorymembers&gcmtitle=Category:' + category_of_page + '&prop=info&prop=extracts&exintro=&explaintext&exlimit=max&continue=gcmcontinue||random&rnlimit=10&rnnamespace=0&continue=&callback=?'
+        retrive_posts();
+    });
+    
+    $('#search_input').keyup(function(e){
+        if(e.keyCode == 13)
+        {
+            $(this).trigger("enterKey");
+        }
+    });
 
     $('#feed').on('click', 'span', function() {
 
@@ -154,6 +175,7 @@ $(document).ready(function() {
 
             if ($(this).text() != "Randomly") {
                 category_of_page = $(this).text()
+                $("#search_input").val(category_of_page)
             }
 
             $('#feed').html('')
