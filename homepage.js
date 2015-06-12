@@ -32,6 +32,11 @@ function retrive_posts() {
                     	item.title = item.title+"</span>"
                     }
 
+                    else {
+                    	temp_url = "https://en.wikipedia.org/wiki/" + item.title;
+                    	item.title =  "<a href="+temp_url + " target='_blank' >"+item.title +"</a>";
+                    }
+
 
                     $('#' + colum).append('<h2>' + item.title + '</h2>')
                 }
