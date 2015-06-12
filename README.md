@@ -10,5 +10,5 @@ The backend of Wikifeedia can be found [here](https://github.com/hackerkid/Wikif
 
 
 ##Contributing
-The website is made mostly of Javascript. It would be great if the new contributions are implemented in Browser rather than in server as I have no plan now for moving the website from Github pages as of now. There is a great amount of work to be done in improving the UI of the Website. Send pull requests to master. 
+The website is made mostly of Javascript. It would be great if the new contributions are implemented in Browser rather than in server as I have no plan now for moving the website from Github pages as of now. There is a great amount of work to be done in improving the UI of the Website. Send pull requests only to the master branch. 
 
