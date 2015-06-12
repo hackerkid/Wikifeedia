@@ -3,17 +3,27 @@ h2 {
     margin-bottom: 1px;
 }
 
-#newlogo {
+.newlogo {
     font-size: 16px;
     margin-right: 10px;
+
+}
+
+.newlogo a{
+    text-decoration: none;
+    color: black;
 }
 
 #feed {
     margin-top: 45px;
 }
 
+#github {
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
 #message {
-    color: #39cccc;
+    color: #337AB7;
     text-decoration: underline;
     cursor: pointer;
 }
@@ -40,13 +50,21 @@ h2 {
     margin: 0px auto;
 }
 
-#home {
+
+
+.home {
     color: #999;
-    margin-left: -5px;
+    margin-left: 5px;
     font-size: 16px;
     font-weight: 500;
     line-height: 50px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.home a {
+    text-decoration: none;
+    color: #999;
+
 }
 
 #homelogo {
@@ -128,7 +146,7 @@ article {
     left: -6px;
     width: 1%;
     height: 2px;
-    background: #39cccc;
+    background: #337AB7;
     -moz-border-radius: 1px;
     -webkit-border-radius: 1px;
     border-radius: 1px;
@@ -144,10 +162,10 @@ article {
     position: absolute;
     top: 0;
     height: 2px;
-    -moz-box-shadow: #39cccc 1px 0 6px 1px;
-    -ms-box-shadow: #39cccc 1px 0 6px 1px;
-    -webkit-box-shadow: #39cccc 1px 0 6px 1px;
-    box-shadow: #39cccc 1px 0 6px 1px;
+    -moz-box-shadow: #337AB7 1px 0 6px 1px;
+    -ms-box-shadow: #337AB7 1px 0 6px 1px;
+    -webkit-box-shadow: #337AB7 1px 0 6px 1px;
+    box-shadow: #337AB7 1px 0 6px 1px;
     -moz-border-radius: 100%;
     -webkit-border-radius: 100%;
     border-radius: 100%;
