@@ -27,14 +27,12 @@ function retrive_posts() {
                 $('#feed').append('<div id = ' + colum + '>')
 
                 if ($('#' + colum + ' h2').length == 0) {
-                    if(item.title.indexOf("Category:") != -1) {
-                    	item.title = item.title.replace("Category:", "<span>Category:")
-                    	item.title = item.title+"</span>"
-                    }
-
-                    else {
-                    	temp_url = "https://en.wikipedia.org/wiki/" + item.title;
-                    	item.title =  "<a href="+temp_url + " target='_blank' >"+item.title +"</a>";
+                    if (item.title.indexOf("Category:") != -1) {
+                        item.title = item.title.replace("Category:", "<div id='catstyle'>Category</div><br><span id='cattitle'>")
+                        item.title = item.title + "</span>"
+                    } else {
+                        temp_url = "https://en.wikipedia.org/wiki/" + item.title;
+                        item.title = "<a href=" + temp_url + " target='_blank' >" + item.title + "</a>";
                     }
 
 
@@ -127,22 +125,22 @@ function fetchImage(pageId) {
 $(document).ready(function() {
     //  
     loadStartIndex()
-/*
-    $('#search_input').keyup(function() {
-        var search_input = $(this).val()
-        console.log(search_input)
-        category_of_page = search_input
+        /*
+            $('#search_input').keyup(function() {
+                var search_input = $(this).val()
+                console.log(search_input)
+                category_of_page = search_input
 
-        $('#feed').html('')
-        $('#feed').append('Showing results for <b>' + category_of_page + ' </b><span id="message">Chronologically</span><hr>')
-        $('div#loadmoreajaxloader').show()
-        urlContent = 'http://en.wikipedia.org/w/api.php?format=json&action=query&list=random&generator=categorymembers&gcmtitle=Category:' + category_of_page + '&prop=info&prop=extracts&exintro=&explaintext&exlimit=max&continue=gcmcontinue||random&rnlimit=10&rnnamespace=0&continue=&callback=?'
-        retrive_posts();
-        //loadStartIndex()
-    })
+                $('#feed').html('')
+                $('#feed').append('Showing results for <b>' + category_of_page + ' </b><span id="message">Chronologically</span><hr>')
+                $('div#loadmoreajaxloader').show()
+                urlContent = 'http://en.wikipedia.org/w/api.php?format=json&action=query&list=random&generator=categorymembers&gcmtitle=Category:' + category_of_page + '&prop=info&prop=extracts&exintro=&explaintext&exlimit=max&continue=gcmcontinue||random&rnlimit=10&rnnamespace=0&continue=&callback=?'
+                retrive_posts();
+                //loadStartIndex()
+            })
 
-  */  
-    $('#search_input').bind("enterKey",function(e){
+          */
+    $('#search_input').bind("enterKey", function(e) {
         var search_input = $("#search_input").val()
         console.log(search_input)
         category_of_page = search_input
@@ -153,10 +151,9 @@ $(document).ready(function() {
         urlContent = 'http://en.wikipedia.org/w/api.php?format=json&action=query&list=random&generator=categorymembers&gcmtitle=Category:' + category_of_page + '&prop=info&prop=extracts&exintro=&explaintext&exlimit=max&continue=gcmcontinue||random&rnlimit=10&rnnamespace=0&continue=&callback=?'
         retrive_posts();
     });
-    
-    $('#search_input').keyup(function(e){
-        if(e.keyCode == 13)
-        {
+
+    $('#search_input').keyup(function(e) {
+        if (e.keyCode == 13) {
             $(this).trigger("enterKey");
         }
     });
@@ -179,7 +176,7 @@ $(document).ready(function() {
             }
 
             $('#feed').html('')
-            $('#feed').append('Showing results for <b>' + category_of_page + '</b><span id="message">Chronologically</span><hr>')
+            $('#feed').append('Showing results for <b>' + category_of_page + ' </b><span id="message">Chronologically</span><hr>')
 
             $('div#loadmoreajaxloader').show()
             urlContent = 'http://en.wikipedia.org/w/api.php?format=json&action=query&list=random&generator=categorymembers&gcmtitle=Category:' + category_of_page + '&prop=info&prop=extracts&exintro=&explaintext&exlimit=max&continue=gcmcontinue||random&rnlimit=10&rnnamespace=0&continue=&callback=?'
