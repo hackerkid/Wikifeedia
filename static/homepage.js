@@ -32,6 +32,7 @@ function retrive_posts() {
                         item.title = item.title + "</span>"
                     } else {
                         temp_url = "https://en.wikipedia.org/wiki/" + item.title;
+                        temp_url = encodeURI(temp_url);
                         item.title = "<a href=" + temp_url + " target='_blank' >" + item.title + "</a>";
                     }
 
