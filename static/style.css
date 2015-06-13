@@ -201,8 +201,3 @@ article {
     clip: rect(-6px, 22px, 14px, 10px);
 }
 
-@media (max-width: 500px) {
-    body {
-        background: red;
-    }
-}
