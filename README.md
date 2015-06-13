@@ -14,4 +14,3 @@ The website is made mostly of Javascript. It would be great if the new contribut
 
 Send pull requests only to the master branch. 
 
-##MIT License
