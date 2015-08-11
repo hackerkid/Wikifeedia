@@ -1,3 +1,12 @@
+@font-face {
+    font-family: ubuntu;
+    src: url('fonts/Ubuntu-Medium.ttf');
+}
+
+body {
+    font-family: ubuntu;
+}
+
 h2 {
     margin-top: 3px;
     margin-bottom: 1px;
@@ -150,7 +159,7 @@ h2 {
 }
 
 article {
-    max-width: 500px;
+    max-width: 1000px;
     padding: 20px;
     margin: 0 auto;
 }
@@ -201,3 +210,23 @@ article {
     clip: rect(-6px, 22px, 14px, 10px);
 }
 
+@media (max-width: 500px) {
+    body {
+        background: red;
+    }
+}
+
+#feed > div img {
+    position: relative;
+    left: 50%;
+    transform:translate(-50%, 0);
+}
+
+#feed h2 {
+    text-align: center;
+}
+
+
+#feed > div div:nth-child(2) {
+    text-align: center;
+}
