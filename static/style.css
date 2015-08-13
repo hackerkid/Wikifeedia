@@ -4,19 +4,11 @@
 }
 
 body {
+  margin-top: 50px;
     font-family: ubuntu;
 }
 
-h2 {
-    margin-top: 3px;
-    margin-bottom: 1px;
-}
-
-.newlogo {
-    font-size: 16px;
-    margin-right: 10px;
-
-}
+.navbar .brand { max-height: 40px; overflow: visible;padding-top: 0;padding-bottom: 0; }
 
 #catstyle {
     background-color: #F1F8FB;
@@ -28,142 +20,42 @@ h2 {
     border: 1px solid #BBCADC;
 }
 
+
+#category {
+    line-height: 1.2em;
+    font-size: 12px;
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+    word-wrap: break-word;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-top: 3px;
+    display: inline-block;
+}
+
 #cattitle {
     color: #337AB7;
     cursor: pointer;
 
 }
 
-.newlogo a{
-    text-decoration: none;
-    color: black;
+#feed img{
+  margin:20px 10px 10px 0px;
 }
 
-#feed {
-    margin-top: 45px;
+.feed_post{
+  border-bottom:1px solid #eee;
+  margin-bottom:40px;
 }
 
-#github {
-    margin-left: 10px;
-    margin-bottom: 5px;
+.feed_post h2 a, .feed_post h2 a:hover{
+  color:#777;
+  text-decoration: none;
 }
-#message {
-    color: #337AB7;
-    text-decoration: underline;
-    cursor: pointer;
+.feed_post h2 a:hover{
+  color:#444;
 }
-
-#SiteHeader {
-    background: none repeat scroll 0% 0% #FFF;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 52px;
-    box-sizing: border-box;
-    z-index: 700;
-    font-size: 14px;
-    border-bottom: 1px solid #DDD;
-    box-shadow: 0px 3px 2px -2px rgba(200, 200, 200, 0.2);
-}
-
-#box {
-    box-sizing: border-box;
-    position: relative;
-    height: 50px;
-    width: 1020px;
-    margin: 0px auto;
-}
-
-
-
-.home {
-    color: #999;
-    margin-left: 5px;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 50px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-.home a {
-    text-decoration: none;
-    color: #999;
-
-}
-
-#homelogo {
-    margin-left: 5px;
-    color: #999;
-}
-
-#search_input {
-    border-radius: 2px;
-    box-sizing: border-box;
-    margin-top: 0px;
-    padding: 5px 5px 5px 26px;
-    float: none;
-    font-size: 15px;
-    line-height: normal;
-    border: 0px none;
-    background: url("//qsf.is.quoracdn.net/-0301a816dcf97f2c.png") no-repeat scroll 8px center / 13px 13px #EEE;
-    width: 450px;
-}
-
-#logotitle {
-    font-size: 24px;
-    font-family: 'Hoefler Text', 'Times New Roman', 'Times New Roman', Times, serif;
-}
-
-#maxwidth {
-    max-height: 350px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #B8B894;
-}
-
-#category2 {
-    line-height: 1.2em;
-    font-size: 14px;
-    font-weight: 500;
-    color: white;
-    cursor: pointer;
-    word-wrap: break-word;
-    background-color: #808393;
-    border-radius: 6px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-left: 2px;
-    margin-right: 2px;
-    display: inline-block;
-}
-
-#category {
-    line-height: 1.2em;
-    font-size: 12px;
-    font-weight: 500;
-    color: #414444;
-    cursor: pointer;
-    word-wrap: break-word;
-    border-radius: 6px;
-    text-decoration: underline;
-    padding-right: 5px;
-    margin-right: 2px;
-}
-
-#logo {
-    position: relative;
-    left: 200px;
-    top: 10px;
-    margin: 5px;
-}
-
-article {
-    max-width: 1000px;
-    padding: 20px;
-    margin: 0 auto;
-}
-
 #progress {
     position: fixed;
     z-index: 2147483647;
@@ -210,23 +102,11 @@ article {
     clip: rect(-6px, 22px, 14px, 10px);
 }
 
-@media (max-width: 500px) {
-    body {
-        background: red;
-    }
+.post_header{
+  padding:10px;
+  text-align:center;
 }
 
-#feed > div img {
-    position: relative;
-    left: 50%;
-    transform:translate(-50%, 0);
-}
-
-#feed h2 {
-    text-align: center;
-}
-
-
-#feed > div div:nth-child(2) {
-    text-align: center;
+.label a{
+  color:white;
 }
