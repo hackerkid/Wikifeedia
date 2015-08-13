@@ -18,3 +18,4 @@ Send pull requests only to the master branch.
 ##Contributors
 * [Adarsh Nair](https://github.com/adarshnair01)
 * [Anurag Sharma](https://github.com/anurageldorado)
+* [Vishnu Ks](https://github.com/hackerkid)
