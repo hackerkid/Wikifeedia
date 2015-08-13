@@ -115,3 +115,14 @@ body {
   background-image:none;
   background:white;
 }
+
+.navbar-form .input-group-addon {
+  background-color: #fff;
+  border-radius: 0px;
+  border-right:0px;
+}
+
+.navbar-form .form-control {
+  border-radius: 0px;
+  border-left: 0px;
+}
