@@ -110,3 +110,8 @@ body {
 .label a{
   color:white;
 }
+
+.navbar-default{
+  background-image:none;
+  background:white;
+}
