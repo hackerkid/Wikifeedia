@@ -1,8 +1,4 @@
-var category_of_page = 'featured_articles'
-if (typeof getUrlVars()['category'] !== 'undefined') {
-    category_of_page = getUrlVars()['category']
-}
-
+var category_of_page = 'featured_articles';
 var heroku_url = 'http://wikifeedia.herokuapp.com/index.php?category=' + category_of_page + '&callback=?'
 var hex_code = []
 
