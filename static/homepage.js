@@ -1,11 +1,10 @@
 var category_of_page = 'featured_articles'
-if (typeof getUrlVars()['category'] !== 'undefined') {
-    category_of_page = getUrlVars()['category']
-}
 
 var heroku_url = 'http://wikifeedia.herokuapp.com/index.php?category=' + category_of_page + '&callback=?'
 var hex_code = []
 
+
+//retrieve posts randomly
 function retrive_posts() {
 
     if ($("#progress").length === 0) {
@@ -24,7 +23,7 @@ function retrive_posts() {
             imageHolder = 'image' + pageId
 
             if ($('#' + colum).length == 0) {
-                $('#feed').append('<div id = ' + colum + '>')
+                $('#feed').append('<div class="col-md-10 col-md-offset-1 feed_post" id = ' + colum + '>')
 
                 if ($('#' + colum + ' h2').length == 0) {
                     if (item.title.indexOf("Category:") != -1) {
@@ -37,22 +36,22 @@ function retrive_posts() {
                     }
 
 
-                    $('#' + colum).append('<h2>' + item.title + '</h2>')
+                    $('#' + colum).append('<h2 class="post-header text-center">' + item.title + '</h2>')
                 }
 
                 if ($('#' + catId).length == 0) {
-                    $('#' + colum).append('<div id = ' + catId + '> </div><br>')
+                    $('#' + colum).append('<div class="text-center col-md-12" id = ' + catId + '> </div><br>')
                 }
 
                 if ($('#' + imageHolder).length == 0) {
-                    $('#' + colum).append('<div id = ' + imageHolder + '> </div><br>')
+                    $('#' + colum).append('<div id = ' + imageHolder + ' class="col-sm-4 col-xs-12 pull-right"> </div><br>')
                     fetchImage(pageId)
 
                 }
 
                 if ($('#' + colum + ' p').length == 0) {
-                    $('#' + colum).append('<p>' + content + '</p>')
-                    $('#feed').append('</div><hr><br>')
+                    $('#' + colum).append('<p class="text-justify">' + content + '</p>')
+                    $('#feed').append('</div><br/>')
                     fetchCat(pageId)
                 }
 
@@ -113,7 +112,7 @@ function fetchImage(pageId) {
         $.each(data.query.pages, function(i, item) {
             content = item.thumbnail.source
             colum = 'image' + pageId
-            $('#' + colum).append("<img id='maxwidth' src = " + content + '> </img>')
+            $('#' + colum).append("<img class='img-thumbnail pull-left' src = " + content + '> </img>')
 
         })
     })
@@ -124,7 +123,7 @@ function fetchImage(pageId) {
 
 
 $(document).ready(function() {
-    //  
+    //
     loadStartIndex()
         /*
             $('#search_input').keyup(function() {
@@ -147,7 +146,7 @@ $(document).ready(function() {
         category_of_page = search_input
 
         $('#feed').html('')
-        $('#feed').append('Showing results for <b>' + category_of_page + ' </b><span id="message">Chronologically</span><hr>')
+        $('#feed').append('<br><center>Showing results for <b>' + category_of_page + ' </b><span id="message">Chronologically</span>. </center><hr>')
         $('div#loadmoreajaxloader').show()
         urlContent = 'http://en.wikipedia.org/w/api.php?format=json&action=query&list=random&generator=categorymembers&gcmtitle=Category:' + category_of_page + '&prop=info&prop=extracts&exintro=&explaintext&exlimit=max&continue=gcmcontinue||random&rnlimit=10&rnnamespace=0&continue=&callback=?'
         retrive_posts();
@@ -159,12 +158,14 @@ $(document).ready(function() {
         }
     });
 
+
+
     $('#feed').on('click', 'span', function() {
 
 
         if ($(this).text() == "Chronologically") {
             $('#feed').html('')
-            $('#feed').append('Showing results for <b>' + category_of_page + ' </b><span id="message">Randomly</span><hr>')
+        	$('#feed').append('<br><center>Showing results for <b>' + category_of_page + ' </b><span id="message">Randomly</span>. </center><hr>')
             $('div#loadmoreajaxloader').show()
             loadStartIndex();
 
@@ -177,7 +178,7 @@ $(document).ready(function() {
             }
 
             $('#feed').html('')
-            $('#feed').append('Showing results for <b>' + category_of_page + ' </b><span id="message">Chronologically</span><hr>')
+        	$('#feed').append('<br><center>Showing results for <b>' + category_of_page + ' </b><span id="message">Chronologically</span>. </center><hr>')
 
             $('div#loadmoreajaxloader').show()
             urlContent = 'http://en.wikipedia.org/w/api.php?format=json&action=query&list=random&generator=categorymembers&gcmtitle=Category:' + category_of_page + '&prop=info&prop=extracts&exintro=&explaintext&exlimit=max&continue=gcmcontinue||random&rnlimit=10&rnnamespace=0&continue=&callback=?'
@@ -218,7 +219,7 @@ function fetchCat(pageId) {
                 catile = catile.replace('Category:', '')
                 if ((catile.match(/articles/g) || []).length == 0 && (catile.match(/Articles/g) || []).length == 0 && (catile.match(/Pages/g) || []).length == 0 && (catile.match(/Article/g) || []).length == 0 && (catile.match(/category/g) || []).length == 0 && (catile.match(/pages/g) || []).length == 0 && k < 5) {
                     k++
-                    $('#' + catId).append("<span id = 'category'>" + catile + ' </span>')
+                    $('#' + catId).append("<span id = 'category'  class='label label-info'>" + catile + '</div> &nbsp;')
 
                 }
 

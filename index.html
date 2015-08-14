@@ -5,8 +5,10 @@
 <head>
     <title>Wikifeedia - Wikipedia delivered as a Newsfeed</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="static/style.css">
-
+    
     <meta property = "og:title" content = "Wikifeedia">
 	<meta property = "og:url" content = "http://www.vishnuks.com/Wikifeedia">
 	<meta property = "og:image" content = "http://blog.ketchum.com/wp-content/uploads/2013/09/wikipedia.png">
@@ -20,6 +22,10 @@
     <meta name="keywords" content="Wikipedia, random article, wikifeedia">
     <meta name="author" content="Vishnu KS">
 
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -31,53 +37,46 @@
 
 
 
-
-    <div id="SiteHeader">
-        <div id="box">
-
-
-
-            <span class="newlogo">
-                  <a href="">
-                  <img alt="WikiFeedia"  src="images/wiki.png" width="30" >
-                   Wikifeedia
-                  </a>
-
-                </span>
-
-
-
-
-            <input type="text" id="search_input" maxlength="300" autocomplete="off" placeholder="search for your favourite topics">
-            </input>
-
-            <a href="">
-                <span id="homelogo" class="glyphicon glyphicon-home">
-            </span>
-            </a>
-
-
-            <span class="home">
-                <a href="">Home</a> 
-            </span>
-            
-
-            <span class = "home">
-                <span class = "glyphicon glyphicon-phone"> </span>
-                <a href="app/Wikifeedia.apk">Android </a>
-
-            </span>
-
-            <a target="_blank" href="/WikiFeedia">
-                <img id="github" src="images/github.png" width="20">
-            </a>
-
-            <span class="home">
-                <a target="_blabk" href="http://github.com/hackerkid/WikiFeedia">Github</a>
-            </span>
-
-        </div>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="">
+        <span class="pull-left"><img alt="WikiFeedia" width="30px;" src="images/wiki.png" class="hidden-xs hidden-sm img-responsive"/ ></span><span class="lead"> &nbsp;Wikifeedia</span>
+      </a>
     </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div class="navbar-form navbar-left" role="search">
+        <div class="input-group">
+          <span class="input-group-addon" ><span class="glyphicon glyphicon-search" ></span></span>
+          <input  type="text" id="search_input" class="form-control input-xs" maxlength="300" autocomplete="off" placeholder="search for your favourite topics"/>
+        </div><!-- /input-group -->
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href=""><span id="homelogo" class="glyphicon glyphicon-home"></span> Home</a></li>
+        <li><a href="app/Wikifeedia.apk"><span class = "glyphicon glyphicon-phone"> </span> Android </a></li>
+        <li><a href="http://github.com/hackerkid/WikiFeedia"><img id="github" src="images/github.png" width="20"/> Github</a></li>
+      </ul>
+      <!--<ul class="hidden-sm nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Social Links <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">LinkedIn</a></li>
+          </ul>
+        </li>
+      </ul>-->
+    </div><!-- /.navbar-collapse -->
+    </div>
+  </nav>
 
 
 
@@ -92,6 +91,8 @@
     </article>
 
 
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 </body>
 
