@@ -9,7 +9,11 @@ body {
 }
 
 .navbar .brand { max-height: 40px; overflow: visible;padding-top: 0;padding-bottom: 0; }
-
+#message {
+    color: #337AB7;
+    text-decoration: underline;
+    cursor: pointer;
+}
 #catstyle {
     background-color: #F1F8FB;
     border-radius: 3px;
@@ -32,6 +36,7 @@ body {
     text-decoration: none;
     margin-top: 3px;
     display: inline-block;
+    margin-right: 5px;
 }
 
 #cattitle {
