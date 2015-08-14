@@ -26,7 +26,7 @@ function retrive_posts() {
             imageHolder = 'image' + pageId
 
             if ($('#' + colum).length == 0) {
-                $('#feed').append('<div class="col-md-8 col-md-offset-2 feed_post" id = ' + colum + '>')
+                $('#feed').append('<div class="col-md-10 col-md-offset-1 feed_post" id = ' + colum + '>')
 
                 if ($('#' + colum + ' h2').length == 0) {
                     if (item.title.indexOf("Category:") != -1) {
