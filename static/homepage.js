@@ -1,6 +1,11 @@
 var category_of_page = 'featured_articles'
+var obj = [];
+if(JSON.parse(localStorage.getItem("favcat")) != null) {   
+    obj = JSON.parse(localStorage.getItem("favcat"));
+    //category_of_page = obj[Math.floor((Math.random() * obj.length))];
+}
 
-var heroku_url = 'http://wikifeedia.herokuapp.com/index.php?category=' + category_of_page + '&callback=?'
+//var heroku_url = 'http://wikifeedia.herokuapp.com/index.php?category=' + category_of_page + '&callback=?'
 var hex_code = []
 
 
@@ -69,7 +74,11 @@ function retrive_posts() {
 }
 
 function loadStartIndex() {
-    $.getJSON(heroku_url, function(data) {
+    if (obj.length > 0)
+        category_of_page = obj[Math.floor((Math.random() * obj.length))];
+    var heroku_url = 'http://wikifeedia.herokuapp.com/index.php?category=' + category_of_page + '&callback=?'
+    console.log(heroku_url);
+    $.getJSON(heroku_url, function(data) {        
         start_page = data.category
         start_page_cleaned = start_page.replace('_', ' ')
         start_page_cleaned = start_page.toUpperCase()
@@ -119,7 +128,16 @@ function fetchImage(pageId) {
 
 }
 
-
+function addCategory(favCategory) {
+    var obj;
+    if(JSON.parse(localStorage.getItem("favcat")) == null)
+        obj = new Array();
+    else
+        obj = JSON.parse(localStorage.getItem("favcat"));
+    obj.push(favCategory);
+    localStorage.setItem("favcat", JSON.stringify(obj));    
+    console.log(localStorage.favcat);
+}
 
 
 $(document).ready(function() {
@@ -169,6 +187,12 @@ $(document).ready(function() {
             $('div#loadmoreajaxloader').show()
             loadStartIndex();
 
+        } else if ($(this).text() == "Add") {
+            var catName = $(this).attr("id");
+            catName = catName.replace("fav-","");
+            $(this).html("Added");
+            $(this).css("background-color", "#CDB7E2")
+            addCategory(catName)
         } else {
 
 
@@ -213,13 +237,22 @@ function fetchCat(pageId) {
     $.getJSON(ul, function(data) {
         $.each(data.query.pages, function(i, item) {
             k = 0
+            var obj = [];
+            if(JSON.parse(localStorage.getItem("favcat")) != null)                        
+                obj = JSON.parse(localStorage.getItem("favcat"));
             $.each(item.categories, function(j, cat) {
                 catId = 'cat' + pageId
                 catile = cat.title
                 catile = catile.replace('Category:', '')
                 if ((catile.match(/articles/g) || []).length == 0 && (catile.match(/Articles/g) || []).length == 0 && (catile.match(/Pages/g) || []).length == 0 && (catile.match(/Article/g) || []).length == 0 && (catile.match(/category/g) || []).length == 0 && (catile.match(/pages/g) || []).length == 0 && k < 5) {
                     k++
-                    $('#' + catId).append("<span id = 'category'  class='label label-info'>" + catile + '</div> &nbsp;')
+                    
+                    if (obj.indexOf(catile) >= 0) {                        
+                        $('#' + catId).append("<span id = 'fav-" + catile + "' class='fav label label-info' style='background-color:#CDB7E2'>" + "Added" + '</span>');
+                    } else {                    
+                        $('#' + catId).append("<span id = 'fav-" + catile + "' class='fav label label-info'>" + "Add" + '</span>');
+                    }
+                    $('#' + catId).append("<span id = 'category'  class='label label-info'>" + catile + '</div> &nbsp;');
 
                 }
 

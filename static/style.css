@@ -39,6 +39,20 @@ body {
     margin-right: 5px;
 }
 
+.fav {
+    background-color:#82669E;
+    line-height: 1.2em;
+    font-size: 12px;
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+    word-wrap: break-word;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-top: 3px;
+    display: inline-block;
+}
+
 #cattitle {
     color: #337AB7;
     cursor: pointer;
@@ -111,6 +125,7 @@ body {
   padding:10px;
   text-align:center;
 }
+
 
 .label a{
   color:white;
