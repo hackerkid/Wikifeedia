@@ -13,8 +13,9 @@ The backend of Wikifeedia can be found [here](https://github.com/hackerkid/Wikif
 ```
 git clone https://github.com/hackerkid/Wikifeedia/
 cd Wikifeedia
-firefox index.html
+python -m SimpleHTTPServer
 ```
+Now browse to localhost:8000 to view the site. 
 
 There is no backend as all the data is retrieved via external APIs. 
 
