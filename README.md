@@ -7,7 +7,7 @@ I love Wikipedia. It is the first place I would go in the World Wide Web  whenev
 
 The home page of Wikifeedia consist of a news feed of Featured articles. Featured articles are considered to be the best articles Wikipedia has to offer, as determined by Wikipedia's editors. As of now there is no API for getting a list of featured articles that changes each time one make a request. To facilitate this I had to to make a new API server along with some Javascript tweaks in Browser.  
 
-The backend of Wikifeedia can be found [here](https://github.com/hackerkid/Wikifeedia-Backend).
+The backend of Wikifeedia API can be found [here](https://github.com/hackerkid/Wikifeedia-Backend).
 
 ##Running in your system
 ```
