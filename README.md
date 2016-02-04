@@ -1,4 +1,4 @@
-![Wikifeedia](https://github.com/hackerkid/Wikifeedia/blob/master/static/wikifeedia.png) 
+![Wikifeedia](https://github.com/hackerkid/Wikifeedia/blob/gh-pages/static/wikifeedia.png) 
 ##Wikipedia delivered as a Newsfeed
 
 I love Wikipedia. It is the first place I would go in the World Wide Web  whenever I want to learn more about some stuff. Like me most of the netizens use Wikipedia only when they want to learn more about something and not for fun like Quora. I consider this as a problem.  [Wikifeedia](http://vishnuks.com/Wikifeedia) was made to fix that problem.  
