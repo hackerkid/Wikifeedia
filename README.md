@@ -16,6 +16,7 @@ cd Wikifeedia
 python -m SimpleHTTPServer
 ```
 Now browse to localhost:8000 to view the site. 
+Note: Equivalent python3 command is python3 -m http.server
 
 There is no backend as all the data is retrieved via external APIs. 
 
