@@ -1,11 +1,6 @@
-@font-face {
-    font-family: ubuntu;
-    src: url('fonts/Ubuntu-Medium.ttf');
-}
-
 body {
   margin-top: 50px;
-    font-family: ubuntu;
+    font-family: sans-serif;
 }
 
 .navbar .brand { max-height: 40px; overflow: visible;padding-top: 0;padding-bottom: 0; }
