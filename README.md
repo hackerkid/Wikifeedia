@@ -1,7 +1,7 @@
 ![Wikifeedia](https://github.com/hackerkid/Wikifeedia/blob/gh-pages/static/wikifeedia.png) 
 ##Wikipedia delivered as a Newsfeed
 
-I love Wikipedia. It is the first place I would look at when I want to learn more about some stuff. Like me, most of the people use Wikipedia only when they want to learn more about something. Why is people not visiting Wikipedia for inrceasing their knowladge like Quora?. [Wikifeedia](http://vishnuks.com/Wikifeedia) was made to fix that problem.  
+Wikipedia is the first place I would look at when I want to know more about anything. Like me most of the people end up in Wikepdia at the time of a need. Why are people not visiting Wikipedia for fun like Quora?. [Wikifeedia](http://vishnuks.com/Wikifeedia) was made to fix this problem.  
 
 ##How it works?
 
