@@ -19,4 +19,4 @@ Your code goes live the moment it gets merged. Excited? Here is a small list of 
 * Custom home page
 * Implement any MV* framework ( preferably Backbone / React )
 
-Your own ideas are also welcome as pull request. 
+Your own ideas are also welcome as pull requests. 
