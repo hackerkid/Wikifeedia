@@ -9,6 +9,13 @@ The home page of Wikifeedia consist of a news feed of Featured articles. Feature
 
 The backend of Wikifeedia can be found [here](https://github.com/hackerkid/Wikifeedia-backend).
 
+##Installation 
+```
+git clone https://github.com/hackerkid/Wikifeedia/
+cd Wikifeedia
+python -m SimpleHTTPServer
+```
+Now browse to http://localhost:8000 . 
 
 ##Contributing
 Your code goes live the moment it gets merged. Excited? Here is a small list of ToDos you can start working right now. 
