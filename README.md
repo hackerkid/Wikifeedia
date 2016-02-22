@@ -17,6 +17,9 @@ python -m SimpleHTTPServer
 ```
 Now browse to http://localhost:8000 . 
 
+Equivalent python3 command is `python3 -m http.server` 
+
+
 ##Contributing
 Your code goes live the moment it gets merged. Excited? Here is a small list of ToDos you can start working right now. 
 
