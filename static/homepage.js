@@ -1,6 +1,6 @@
 var category_of_page = 'featured_articles'
 
-var heroku_url = 'http://wikifeedia.herokuapp.com/index.php?category=' + category_of_page + '&callback=?'
+var heroku_url = 'http://hacks.vishnuks.com/wfbe?category=' + category_of_page + '&callback=?'
 var hex_code = []
 
 
