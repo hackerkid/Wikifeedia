@@ -1,7 +1,7 @@
-![Wikifeedia](https://github.com/hackerkid/Wikifeedia/blob/gh-pages/static/wikifeedia.png) 
+![Wikifeedia](images/wikifeedia.png) 
 ##Wikipedia turned into a Newsfeed
 
-![alt tag](https://github.com/gauthamzz/Wikifeedia/blob/gh-pages/gif.gif)
+![alt tag](images/gif.gif)
 
 ##How it works?
 
