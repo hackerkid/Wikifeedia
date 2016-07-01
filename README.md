@@ -1,5 +1,6 @@
-![Wikifeedia](images/wikifeedia.png) 
-##Wikipedia turned into a Newsfeed
+<p align="center">
+  <img src="images/wikifeedia.png" />
+</p>
 
 ![alt tag](images/gif.gif)
 
