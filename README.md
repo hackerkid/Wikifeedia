@@ -2,9 +2,9 @@
   <img src="images/wikifeedia.png" />
 </p>
 
-![alt tag](images/gif.gif)
-
 ##How it works?
+
+![alt tag](images/gif.gif)
 
 The home page of Wikifeedia consist of a news feed of Featured articles. Featured articles are considered to be the best articles in Wikipedia. As of now there is no API for getting a list of featured articles that changes each time one make a request. To facilitate this I had to to make a new API server along with some Javascript tweaks.
 
