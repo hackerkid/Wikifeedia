@@ -18,7 +18,7 @@ python -m SimpleHTTPServer
 ```
 Now browse to http://localhost:8000 . 
 
-Equivalent python3 command is `python3 -m http.server` 
+Equivalent python3 command is `python3 -m http.server` .
 
 
 ##Contributing
