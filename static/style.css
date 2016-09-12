@@ -126,3 +126,8 @@ body {
   border-radius: 0px;
   border-left: 0px;
 }
+
+#wiki-logo {
+  position: relative;
+  top: -9px;
+}
