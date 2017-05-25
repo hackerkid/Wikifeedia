@@ -2,7 +2,7 @@
   <img src="images/wikifeedia.png" />
 </p>
 
-##How it works?
+## How it works?
 
 ![alt tag](images/gif.gif)
 
@@ -10,7 +10,7 @@ The home page of Wikifeedia consist of a news feed of Featured articles. Feature
 
 The backend of Wikifeedia can be found [here](https://github.com/hackerkid/Wikifeedia-backend).
 
-##Installation 
+## Installation 
 ```
 git clone https://github.com/hackerkid/Wikifeedia/
 cd Wikifeedia
@@ -21,10 +21,10 @@ Now browse to http://localhost:8000 .
 Equivalent python3 command is `python3 -m http.server` 
 
 
-##Contributing
+## Contributing
 Your code goes live the moment it gets merged. Excited? Here is a small list of ToDos you can start working right now. 
 
-###TODO
+### TODO
 * Improve the UI.
 * The search results can be improved.
 * Custom home page
