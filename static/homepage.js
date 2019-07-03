@@ -1,6 +1,6 @@
 var category_of_page = 'featured_articles'
 
-var heroku_url = 'http://wikifeedia.herokuapp.com/index.php?category=' + category_of_page + '&callback=?'
+var heroku_url = 'https://wikifeedia.herokuapp.com/index.php?category=' + category_of_page + '&callback=?'
 var hex_code = []
 
 
@@ -98,7 +98,7 @@ function loadStartIndex() {
 }
 
 function fetchInitialPost() {
-    urlContent = 'http://en.wikipedia.org/w/api.php?format=json&action=query&list=random&generator=categorymembers&gcmtitle=Category:' + category_of_page + '&prop=info&prop=extracts&exintro=&explaintext&exlimit=max&continue=gcmcontinue||random&rnlimit=10&rnnamespace=0&gcmcontinue=' + next + '&continue=&callback=?'
+    urlContent = 'https://en.wikipedia.org/w/api.php?format=json&action=query&list=random&generator=categorymembers&gcmtitle=Category:' + category_of_page + '&prop=info&prop=extracts&exintro=&explaintext&exlimit=max&continue=gcmcontinue||random&rnlimit=10&rnnamespace=0&gcmcontinue=' + next + '&continue=&callback=?'
     retrive_posts();
 
 
@@ -106,7 +106,7 @@ function fetchInitialPost() {
 }
 
 function fetchImage(pageId) {
-    urlImage = 'http://en.wikipedia.org/w/api.php?action=query&pageids=' + pageId + '&prop=pageimages&format=json&pithumbsize=500&continue=&callback=?'
+    urlImage = 'https://en.wikipedia.org/w/api.php?action=query&pageids=' + pageId + '&prop=pageimages&format=json&pithumbsize=500&continue=&callback=?'
 
     $.getJSON(urlImage, function(data) {
         $.each(data.query.pages, function(i, item) {
@@ -134,7 +134,7 @@ $(document).ready(function() {
                 $('#feed').html('')
                 $('#feed').append('Showing results for <b>' + category_of_page + ' </b><span id="message">Chronologically</span><hr>')
                 $('div#loadmoreajaxloader').show()
-                urlContent = 'http://en.wikipedia.org/w/api.php?format=json&action=query&list=random&generator=categorymembers&gcmtitle=Category:' + category_of_page + '&prop=info&prop=extracts&exintro=&explaintext&exlimit=max&continue=gcmcontinue||random&rnlimit=10&rnnamespace=0&continue=&callback=?'
+                urlContent = 'https://en.wikipedia.org/w/api.php?format=json&action=query&list=random&generator=categorymembers&gcmtitle=Category:' + category_of_page + '&prop=info&prop=extracts&exintro=&explaintext&exlimit=max&continue=gcmcontinue||random&rnlimit=10&rnnamespace=0&continue=&callback=?'
                 retrive_posts();
                 //loadStartIndex()
             })
@@ -148,7 +148,7 @@ $(document).ready(function() {
         $('#feed').html('')
         $('#feed').append('<br><center>Showing results for <b>' + category_of_page + ' </b><span id="message">Chronologically</span>. </center><hr>')
         $('div#loadmoreajaxloader').show()
-        urlContent = 'http://en.wikipedia.org/w/api.php?format=json&action=query&list=random&generator=categorymembers&gcmtitle=Category:' + category_of_page + '&prop=info&prop=extracts&exintro=&explaintext&exlimit=max&continue=gcmcontinue||random&rnlimit=10&rnnamespace=0&continue=&callback=?'
+        urlContent = 'https://en.wikipedia.org/w/api.php?format=json&action=query&list=random&generator=categorymembers&gcmtitle=Category:' + category_of_page + '&prop=info&prop=extracts&exintro=&explaintext&exlimit=max&continue=gcmcontinue||random&rnlimit=10&rnnamespace=0&continue=&callback=?'
         retrive_posts();
     });
 
@@ -181,7 +181,7 @@ $(document).ready(function() {
         	$('#feed').append('<br><center>Showing results for <b>' + category_of_page + ' </b><span id="message">Chronologically</span>. </center><hr>')
 
             $('div#loadmoreajaxloader').show()
-            urlContent = 'http://en.wikipedia.org/w/api.php?format=json&action=query&list=random&generator=categorymembers&gcmtitle=Category:' + category_of_page + '&prop=info&prop=extracts&exintro=&explaintext&exlimit=max&continue=gcmcontinue||random&rnlimit=10&rnnamespace=0&continue=&callback=?'
+            urlContent = 'https://en.wikipedia.org/w/api.php?format=json&action=query&list=random&generator=categorymembers&gcmtitle=Category:' + category_of_page + '&prop=info&prop=extracts&exintro=&explaintext&exlimit=max&continue=gcmcontinue||random&rnlimit=10&rnnamespace=0&continue=&callback=?'
             retrive_posts();
         }
         //loadStartIndex()
@@ -192,7 +192,7 @@ $(document).ready(function() {
 $(window).scroll(function() {
     if ($(window).scrollTop() == $(document).height() - $(window).height()) {
         data = 0
-        urlContent = 'http://en.wikipedia.org/w/api.php?format=json&action=query&list=random&generator=categorymembers&gcmtitle=Category:' + category_of_page + '&prop=info&prop=extracts&exintro=&explaintext&exlimit=max&continue=gcmcontinue||random&rnlimit=10&rnnamespace=0&gcmcontinue=' + next + '&continue=&callback=?'
+        urlContent = 'https://en.wikipedia.org/w/api.php?format=json&action=query&list=random&generator=categorymembers&gcmtitle=Category:' + category_of_page + '&prop=info&prop=extracts&exintro=&explaintext&exlimit=max&continue=gcmcontinue||random&rnlimit=10&rnnamespace=0&gcmcontinue=' + next + '&continue=&callback=?'
 
         $('div#loadmoreajaxloader').show()
         retrive_posts();
