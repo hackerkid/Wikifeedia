@@ -100,7 +100,8 @@ function loadStartIndex() {
 function fetchInitialPost() {
     urlContent = 'https://en.wikipedia.org/w/api.php?format=json&action=query&list=random&generator=categorymembers&gcmtitle=Category:' + category_of_page + '&prop=info&prop=extracts&exintro=&explaintext&exlimit=max&continue=gcmcontinue||random&rnlimit=10&rnnamespace=0&gcmcontinue=' + next + '&continue=&callback=?'
     retrive_posts();
-
+    
+    console.log("I know this is not all needed, but u know what i need that fucking tshirt")
 
     return 1
 }
